@@ -1,0 +1,13 @@
+package Com.Question2;
+
+public class ArithmeticMain {
+
+	public static void main(String[] args) {
+        Adder a = new Adder();
+        
+        System.out.println("My superclass is: " + a.getClass().getSuperclass().getName());  
+        
+        System.out.print(a.add(40,55) + " " + a.add(50,60) + " " + a.add(56,49) + "\n");
+	}
+
+}
