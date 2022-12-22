@@ -1,0 +1,66 @@
+package com.Question2;
+
+public class Account {
+
+	private int balance=400; //balance
+
+	public int balance()
+	{
+		return balance;
+	}
+
+	public  void withdraw(int amount) throws InSufficientBalanceException
+	{
+		if(amount>balance)
+		{
+			throw new InSufficientBalanceException("NO SufficientFundException" ); //if the amount is greater than balance it will , print InSufficientBalanceException
+
+		}
+		balance=balance-amount; 
+
+
+	}
+
+	public void deposit(int amount)
+	{
+		if(amount<=0)
+		{
+			throw new IllegalArgumentException("Invalid deposit amount "+amount);
+		}
+	}
+	public static void main(String[] args) {
+		Account acct=new Account();
+		System.out.println("current balance:"+acct.balance());
+		System.out.println("Withdrawing 6000");
+		acct.withdraw(6000);
+		System.out.println("Current balance : " + acct.balance());
+
+
+
+	}
+}
+
+
+
+package com.Question2;
+
+public class InSufficientBalanceException extends RuntimeException {
+
+	private String message;
+	public InSufficientBalanceException(String message)
+	{
+		this.message=message;
+
+	}
+
+	public InSufficientBalanceException(Throwable cause,String message)
+	{
+		super(cause);
+		this.message=message;
+	}
+
+	public String getMessage()
+	{
+		return message;
+	}
+}
